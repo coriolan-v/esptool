@@ -389,14 +389,15 @@ class EspEfusesBase(object):
         print("%s%s\nThis is an irreversible operation!" % (action, "" if action.endswith("\n") else ". "))
         if not do_not_confirm:
             print("Type 'BURN' (all capitals) to continue.")
-            sys.stdout.flush()  # required for Pythons which disable line buffering, ie mingw in mintty
-            try:
-                yes = raw_input()  # raw_input renamed to input in Python 3
-            except NameError:
-                yes = input()
-            if yes != "BURN":
-                print("Aborting.")
-                sys.exit(0)
+            yes = "BURN"
+            ;sys.stdout.flush()  # required for Pythons which disable line buffering, ie mingw in mintty
+            ;try:
+                ;yes = raw_input()  # raw_input renamed to input in Python 3
+            ;except NameError:
+                ;yes = input()
+            ;if yes != "BURN":
+                ;print("Aborting.")
+                ;sys.exit(0)
 
     def print_error_msg(self, error_msg):
         if self.force_write_always is not None:
